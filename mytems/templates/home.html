@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MYTEMS - Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0c3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #0a0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .slogan {
+      text-align: center;
+      font-style: italic;
+      color: #055902;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+    .product {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="font-size: 36px; font-weight: bold;">MYTEMS</h1>
+    <p class="slogan">The only place where you can trust online.</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/contact">Contact</a>
+    <a href="/cart">Cart</a>
+    <a href="/wishlist">Wishlist</a>
+    <a href="/orders">Orders</a>
+  </nav>
+
+  <h1>Welcome to MYTEMS Store!</h1>
+
+  <div class="products">
+    {% for product in products %}
+      <div class="product">
+        <img src="{{ product.image }}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <p>₹{{ product.price }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
